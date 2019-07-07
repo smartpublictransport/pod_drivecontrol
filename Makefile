@@ -1,15 +1,10 @@
 CFLAGS = -O
 CC = g++
+SRC = main.cpp location.cpp locationManager.cpp
+OBJ = $(SRC:.cpp = .o)
 
-Loc: main.o location.o
-	$(CC) $(CFLAGS) -o test main.o location.o
-
-main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
-
-location.o: location.cpp
-	$(CC) $(CFLAGS) -c location.cpp
+Test: $(OBJ)
+	$(CC) $(CFLAGS) -o test $(OBJ)
 
 clean:
 	rm -f core *.o
-
