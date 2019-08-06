@@ -1,16 +1,17 @@
 #include <iostream>
-#include "location.h"
+#include "locationManager.h"
 int main () {
     using namespace std;
     
-    Location myLoc( 0, 2);
+    Station myLoc = set_destiny(3);
+    Station myLoc2 = get_destination();
     cout << "Test \n";
     cout << myLoc.get_latitude() << endl;
     cout << myLoc.get_longitude() << endl;
-   // myLoc.set_location_by_id(2);
+   
     cout << "Test name \n";
-    cout << myLoc.get_location_name() << endl;
-    cout << myLoc.get_longitude() << endl;
+    cout << myLoc2.get_name() << endl;
+    cout << myLoc2.get_longitude() << endl;
     
     return 0;
 }

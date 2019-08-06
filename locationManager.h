@@ -1,19 +1,10 @@
 #ifndef LOCATION_MANAGER_H
 #define LOCATION_MANAGER_H
 
-#include "location.h"
+#include "station.h"
 
-class LocationManager
-{
-public:
-    LocationManager();
-    Location get_destination();
+    Station get_destination();
     Location get_current_location();
-    int set_destiny(uint32_t id);
-
-private:
-    Location m_destiny;
-    Location m_location;
-};
+    Station set_destiny(int id);
 
 #endif

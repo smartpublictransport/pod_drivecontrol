@@ -17,21 +17,19 @@ stations test_stations[5] =
     {4,"DD",40,50},
     {5,"FF",50,60} };
 
-LocationManager::LocationManager()
-{
-    m_location = LocationManager::get_current_location();
-    m_destiny =  LocationManager::get_destination();
-}
 
-Location LocationManager::get_destination()
+Station get_destination()
 {
     //TODO: Request destination from server. Maybe Queue?
     //TODO: Remove temporary code once server setup is complete
-    Location destiny(20,30,2,"BB");
+    Station destiny;
+    destiny.set_name("BB");
+    destiny.set_id(2);
+    destiny.set_location(20,30);
     return destiny;
 }
 
-Location LocationManager::get_current_location()
+Location get_current_location()
 {
     //TODO: Request destination from server. Maybe Queue?
     //TODO: Remove temporary code once server setup is complete
@@ -39,18 +37,21 @@ Location LocationManager::get_current_location()
     return current;
 }
 
-int LocationManager::set_destiny(uint32_t id)
+Station set_destiny(int id)
 {
+    Station tmpS;
     for(int i=0; i < 5; i++){
         if(id == test_stations[i].station_id) {
             int tmp_longitude = test_stations[i].station_long;
             int tmp_latitude = test_stations[i].station_lat;
-            uint32_t tmp_name = test_stations[i].station_name;
-            std:string tmp_id = test_stations[i].station_id;
-            m_destiny.set_location(tmp_longitude, tmp_latitude, tmp_id, tmp_name);
-            return 0;
+            std::string tmp_name = test_stations[i].station_name;
+            int tmp_id = test_stations[i].station_id;
+            tmpS.set_location(tmp_longitude, tmp_latitude);
+            tmpS.set_name(tmp_name);
+            tmpS.set_id(tmp_id);
+            return tmpS;
         }
     }
-    return -1;
+    return tmpS;
 }
 
