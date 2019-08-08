@@ -1,6 +1,6 @@
 CFLAGS = -O
 CC = g++
-SRC = main.cpp location.cpp locationManager.cpp station.cpp
+SRC = main.cpp location.cpp locationManager.cpp station.cpp motor/motorManager.cpp
 OBJ = $(SRC:.cpp = .o)
 
 Test: $(OBJ)
