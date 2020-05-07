@@ -1,5 +1,7 @@
 #include <iostream>
 #include "locationManager.h"
+#include "../motor_controller/include/motor_controller.h"
+
 int main () {
     using namespace std;
     
@@ -12,6 +14,6 @@ int main () {
     cout << "Test name \n";
     cout << myLoc2.get_name() << endl;
     cout << myLoc2.get_longitude() << endl;
-    
+    start_aceleration(); 
     return 0;
 }
